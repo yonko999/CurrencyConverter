@@ -161,6 +161,6 @@ class _HomeState extends State<Home> {
   }
 
   void directToResult() {
-    Navigator.pushNamed(context, '/result', arguments: {'convertList': convert});
+    Navigator.pushNamed(context, '/loading', arguments: {'convertList': convert});
   }
 }

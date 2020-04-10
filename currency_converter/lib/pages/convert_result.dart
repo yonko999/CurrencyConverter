@@ -6,9 +6,14 @@ class Result extends StatefulWidget {
 }
 
 class _ResultState extends State<Result> {
+  dynamic convert;
+
+
   @override
   Widget build(BuildContext context) {
-    dynamic convert = ModalRoute.of(context).settings.arguments;
+    // one liner to load data if not already loaded
+    convert = convert.toString() != 'null' ? convert : ModalRoute.of(context).settings.arguments;
+    String rate = convert['rate'];
     convert = convert['convertList'];
 
 
@@ -64,7 +69,7 @@ class _ResultState extends State<Result> {
                   SizedBox(width: 15,),
                   Text(
                     //TODO: make a request to get real convertion
-                    '3.59 x ${convert[1]['currency']}',
+                    '$rate x ${convert[1]['currency']}',
                     style: TextStyle(
                       color: Colors.purple[600],
                       fontSize: 20,
